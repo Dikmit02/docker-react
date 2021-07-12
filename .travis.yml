@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run  diksha/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-677933751647"
+  bucket_path: "docker-react"
+  on:
+    branch: master
